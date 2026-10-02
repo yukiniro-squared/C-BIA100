@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LikhaYANA | Filipino Jewelry</title>
+
+    <style>
+
+        /* GENERAL */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f2e9;
+            color: #4b3b2f;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        h1, h2, h3, p {
+            margin-top: 0;
+        }
+
+
+        /* ANNOUNCEMENT */
+        .announcement {
+            background: #4b3b2f;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+
+        /* NAVIGATION */
+        .site-header {
+            background: #fffaf3;
+            border-bottom: 1px solid #ddd2c4;
+        }
+
+        .navbar {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #b68b5a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a:hover,
+        .bag-link:hover {
+            color: #b68b5a;
+        }
+
+
+        /* HERO */
+        .hero {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 20px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-copy {
+            flex: 1;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            color: #927454;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+
+        .hero h1 em,
+        h2 em {
+            font-family: Georgia, serif;
+            font-weight: normal;
+        }
+
+        .hero-text {
+            max-width: 500px;
+            font-size: 17px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .button-dark {
+            background: #4b3b2f;
+            color: white;
+        }
+
+        .button-dark:hover {
+            background: #80644d;
+        }
+
+        .hero-note {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .note-mark {
+            color: #b68b5a;
+        }
+
+
+        /* HERO IMAGE */
+        .hero-image-wrap {
+            flex: 1;
+        }
+
+        .hero-image {
+            height: 450px;
+            background: url("https://i.pinimg.com/1200x/6a/83/ec/6a83ec589387cbf1b2ad0f747b535953.jpg") center/cover;
+            border-radius: 5px;
+        }
+
+        .image-label {
+            margin-top: 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+
+        /* INTRO */
+        .intro-band {
+            background: #e5d8c8;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .intro-band p:first-child {
+            font-size: 25px;
+        }
+
+        .intro-band em {
+            font-family: Georgia, serif;
+        }
+
+        .intro-detail {
+            font-size: 13px;
+        }
+
+
+        /* SHOP */
+        .shop-section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-size: 40px;
+            line-height: 1.1;
+        }
+
+        .text-link {
+            border-bottom: 1px solid #4b3b2f;
+        }
+
+
+        /* PRODUCTS */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #fffaf3;
+            padding-bottom: 0;
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            display: block;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+
+        /* PRODUCT IMAGES */
+        .image-one {
+            background-image: url("https://i.pinimg.com/1200x/ab/1c/05/ab1c056cbfc897d669880f789e6e90ae.jpg");
+        }
+
+        .image-two {
+            background-image: url("https://i.pinimg.com/736x/31/fd/e6/31fde6358450592973ffb98986ac3bb8.jpg");
+        }
+
+        .image-three {
+            background-image: url("https://i.pinimg.com/1200x/7b/05/9a/7b059a082faa267dd75b97f2312c9d66.jpg");
+        }
+
+        .image-four {
+            background-image: url("https://i.pinimg.com/1200x/33/01/76/3301762b77382aa46bdf79ada7407ebb.jpg");
+        }
+
+        .image-five {
+            background-image: url("https://i.pinimg.com/736x/65/a2/5a/65a25a9a1178a3b98acf06f083e260c8.jpg");
+        }
+
+
+        /* PRODUCT INFORMATION */
+        .product-info {
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .product-info p {
+            margin: 0;
+            font-size: 13px;
+            color: #806c59;
+        }
+
+        .product-info strong {
+            color: #806044;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #fffaf3;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+
+        /* CLICKABLE PRODUCT DESCRIPTION */
+        .product-card details {
+            cursor: pointer;
+        }
+
+        .product-card summary {
+            list-style: none;
+        }
+
+        .product-card summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .product-card summary:hover .product-image {
+            opacity: 0.9;
+        }
+
+        .description {
+            padding: 0 18px 18px;
+            border-top: 1px solid #ddd2c4;
+        }
+
+        .description p {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #6d5b49;
+        }
+
+
+        
+        .story-section {
+            background: #e5d8c8;
+            padding: 70px 10%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .story-image {
+            width: 50%;
+            height: 400px;
+            background: url("https://i.pinimg.com/1200x/38/95/44/389544ef1040e822faae26b04a8ff232.jpg") center/cover;
+        }
+
+        .story-copy {
+            flex: 1;
+        }
+
+        .story-copy h2 {
+            font-size: 38px;
+            line-height: 1.2;
+        }
+
+
+        
+        .interest-section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 70px 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .interest-section h2 {
+            font-size: 35px;
+        }
+
+        .interest-form {
+            flex: 1;
+        }
+
+        .interest-form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-row {
+            display: flex;
+        }
+
+        input {
+            padding: 12px;
+            border: 1px solid #cfc1b0;
+            flex: 1;
+        }
+
+        .button-light {
+            border: none;
+            background: #4b3b2f;
+            color: white;
+            cursor: pointer;
+        }
+
+        .button-light:hover {
+            background: #80644d;
+        }
+
+        small {
+            display: block;
+            margin-top: 10px;
+            color: #806c59;
+        }
+
+
+        /* FOOTER */
+        .footer {
+            background: #4b3b2f;
+            color: white;
+            padding: 40px 10%;
+        }
+
+        .footer p {
+            margin: 8px 0;
+        }
+
+        .footer-meta {
+            font-size: 13px;
+        }
+
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero-image {
+                height: 350px;
+                width: 100%;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .story-section {
+                flex-direction: column;
+            }
+
+            .story-image {
+                width: 100%;
+            }
+
+            .interest-section {
+                flex-direction: column;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ANNOUNCEMENT -->
+    <div class="announcement">
+        Culture, Made Yours.
+    </div>
+
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <a class="logo" href="#top">
+                LikhaYANA<span>.</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#shop">Shop</a>
+                <a href="#story">Our Story</a>
+                <a href="#care">Care Guide</a>
+            </div>
+
+            <a class="bag-link" href="#interest">
+                Your Bag <span>0</span>
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main id="top">
+
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-copy">
+
+                <p class="eyebrow">
+                    Filipino-made adornments ✳
+                </p>
+
+                <h1>
+                    Wear a little<br>
+                    <em>wonder.</em>
+                </h1>
+
+                <p class="hero-text">
+                    Thoughtful pieces inspired by Filipino culture,
+                    island beauty, and the stories we carry with us.
+                </p>
+
+                <a class="button button-dark" href="#shop">
+                    Explore the Collection ↗
+                </a>
+
+                <div class="hero-note">
+                    <span class="note-mark">✦</span>
+
+                    <span>
+                        Small-batch · Hand-finished<br>
+                        in the Philippines
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="hero-image-wrap">
+
+                <div class="hero-image"></div>
+
+                <div class="image-label">
+                    01 / The LikhaYANA Edit
+                </div>
+
+            </div>
+
+        </section>
+
+
+        
+        <section class="intro-band">
+
+            <p>
+                Jewelry for slow mornings,<br>
+                sunlit celebrations, <em>everyday magic.</em>
+            </p>
+
+            <p class="intro-detail">
+                Designed in the Philippines<br>
+                for wherever you are.
+            </p>
+
+        </section>
+
+
+        
+        <section class="shop-section" id="shop">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        Find Your Keepsake
+                    </p>
+
+                    <h2>
+                        Made to be<br>
+                        <em>kept close.</em>
+                    </h2>
+
+                </div>
+
+                <a class="text-link" href="#interest">
+                    View All Pieces ↗
+                </a>
+
+            </div>
+
+
+            <div class="product-grid">
+
+
+                <!-- TIRIK ARAW -->
+                <article class="product-card">
+
+                    <details>
+
+                        <summary>
+
+                            <div class="product-image image-one">
+
+                                <span class="product-tag">
+                                    Best Seller
+                                </span>
+
+                            </div>
+
+                            <div class="product-info">
+
+                                <div>
+                                    <h3>Tirik Araw Pendant</h3>
+                                    <p>18k Gold-Plated Brass</p>
+                                </div>
+
+                                <strong>₱980</strong>
+
+                            </div>
+
+                        </summary>
+
+                        <div class="description">
+
+                            <p>
+                                Inspired by the sun of the Philippine flag,
+                                this pendant represents hope, freedom, and
+                                Filipino pride.
+                            </p>
+
+                        </div>
+
+                    </details>
+
+                </article>
+
+
+                <!-- BARAKO -->
+                <article class="product-card">
+
+                    <details>
+
+                        <summary>
+
+                            <div class="product-image image-two">
+
+                                <span class="product-tag">
+                                    New
+                                </span>
+
+                            </div>
+
+                            <div class="product-info">
+
+                                <div>
+                                    <h3>Barako Necklace</h3>
+                                    <p>Coffee Bean · Customizable</p>
+                                </div>
+
+                                <strong>₱750</strong>
+
+                            </div>
+
+                        </summary>
+
+                        <div class="description">
+
+                            <p>
+                                Inspired by Lipa, Batangas and the Philippines'
+                                coffee heritage, this engravable necklace
+                                celebrates the warmth of Filipino coffee culture.
+                            </p>
+
+                        </div>
+
+                    </details>
+
+                </article>
+
+
+                <!-- HABI -->
+                <article class="product-card">
+
+                    <details>
+
+                        <summary>
+
+                            <div class="product-image image-three"></div>
+
+                            <div class="product-info">
+
+                                <div>
+                                    <h3>Habi Rattan Bracelet</h3>
+                                    <p>Rattan · Hand-Textured</p>
+                                </div>
+
+                                <strong>₱1,120</strong>
+
+                            </div>
+
+                        </summary>
+
+                        <div class="description">
+
+                            <p>
+                                Inspired by the Philippines' tradition of
+                                rattan weaving, this bracelet celebrates
+                                natural materials and Filipino craftsmanship.
+                            </p>
+
+                        </div>
+
+                    </details>
+
+                </article>
+
+
+                <!-- TATAK -->
+                <article class="product-card">
+
+                    <details>
+
+                        <summary>
+
+                            <div class="product-image image-four"></div>
+
+                            <div class="product-info">
+
+                                <div>
+                                    <h3>Tatak Ring</h3>
+                                    <p>Mahogany · Hand-Carved · Customizable</p>
+                                </div>
+
+                                <strong>₱720</strong>
+
+                            </div>
+
+                        </summary>
+
+                        <div class="description">
+
+                            <p>
+                                A customizable wooden ring inspired by the
+                                Filipino idea of leaving your own "tatak,"
+                                or mark. Engrave a name, word, or symbol
+                                to make it uniquely yours.
+                            </p>
+
+                        </div>
+
+                    </details>
+
+                </article>
+
+
+                <!-- ALON -->
+                <article class="product-card">
+
+                    <details>
+
+                        <summary>
+
+                            <div class="product-image image-five"></div>
+
+                            <div class="product-info">
+
+                                <div>
+                                    <h3>Alon Earrings</h3>
+                                    <p>Gold Vermeil · Hand-Textured · Palawan Shells</p>
+                                </div>
+
+                                <strong>₱680</strong>
+
+                            </div>
+
+                        </summary>
+
+                        <div class="description">
+
+                            <p>
+                                Inspired by the seas surrounding the Philippine
+                                archipelago, these earrings celebrate the beauty
+                                of Filipino coastal heritage.
+                            </p>
+
+                        </div>
+
+                    </details>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- STORY -->
+        <section class="story-section" id="story">
+
+            <div class="story-image"></div>
+
+            <div class="story-copy">
+
+                <p class="eyebrow">
+                    A Little About Us
+                </p>
+
+                <h2>
+                    Made with creativity,<br>
+                    <em>shaped by your subjectivity.</em>
+                </h2>
+
+                <p>
+                    Likha means "to create" in Filipino.
+                    Whilst YANA for its makers.
+                    Every piece begins with a feeling —
+                    the warmth of a familiar place, a cultural
+                    tradition, or a personal story worth carrying.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        
+        <section class="interest-section" id="interest">
+
+            <div>
+
+                <p class="eyebrow">
+                    Stay in the Loop
+                </p>
+
+                <h2>
+                    Something lovely<br>
+                    is on its way.
+                </h2>
+
+                <p>
+                    Be the first to know about new drops,
+                    restocks, and little surprises from the studio.
+                </p>
+
+            </div>
+
+
+            <form class="interest-form" onsubmit="showThanks(event)">
+
+                <label for="email">
+                    Your Email Address
+                </label>
+
+                <div class="form-row">
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="hello@example.com"
+                        required
+                    >
+
+                    <button class="button button-light" type="submit">
+                        I'm Interested ↗
+                    </button>
+
+                </div>
+
+                <small id="form-message">
+                    No spam, just good things. Unsubscribe anytime.
+                </small>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+        <footer class="footer" id="care">
+
+        <a class="logo" href="#top">
+            LikhaYANA<span>.</span>
+        </a>
+
+        <p>
+            Crafted from culture, tradition, and your own choices,
+            from the Philippines.
+        </p>
+
+        <p class="footer-meta">
+            © 2026 LikhaYANA Studio ·
+            <a href="mailto:hello@likhaya.ph">
+                hello@likhayana.ph
+            </a>
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT FOR EMAIL FORM ONLY -->
+    <script>
+
+        function showThanks(event) {
+
+            event.preventDefault();
+
+            document.getElementById("form-message").textContent =
+                "Salamat! We will send a little wonder your way.";
+
+            event.target.reset();
+
+        }
+
+    </script>
+
+</body>
+
+</html>
